@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh_CN">
+  <title>Ne0XSec</title>
+  <subtitle>xvzhang`s blog</subtitle>
+  <link href="https://blog.ne0xsec.cn/" rel="alternate" type="text/html"/>
+  <link href="https://blog.ne0xsec.cn/atom.xml" rel="self" type="application/atom+xml"/>
+  <id>https://blog.ne0xsec.cn/</id>
+  <updated>2026-09-09T00:00:00.000Z</updated>
+  <entry>
+    <title>我的第一篇文章</title>
+    <link href="https://blog.ne0xsec.cn/posts/my-first-md/" rel="alternate" type="text/html"/>
+    <id>https://blog.ne0xsec.cn/posts/my-first-md/</id>
+    <published>2026-09-09T00:00:00.000Z</published>
+    <updated>2026-09-09T00:00:00.000Z</updated>
+    <summary>显示在文章列表和元数据中的简短摘要。</summary>
+    <content type="html"><![CDATA[<h1>我的第一篇文章</h1>
+<h2>尝试</h2>
+<h3>代码块</h3>
+<pre><code>def hello_world():
+    print("Hello, World!")
+</code></pre>
+<h4>错误</h4>
+<h4>access_token</h4>
+<p>111111111111111
+报错报错</p>
+<p>错错错</p>
+]]></content>
+    <author><name>序章</name></author>
+    <category term="写作"/>
+  </entry>
+</feed>

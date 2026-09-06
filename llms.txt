@@ -1,0 +1,16 @@
+# Ne0XSec
+
+> xvzhang`s blog
+
+This is the llms.txt file for Ne0XSec. It provides a machine-readable directory of published articles and core pages for Large Language Models.
+
+## Core Pages
+- [Home](https://blog.ne0xsec.cn/): Main blog entrance and latest post stream.
+- [About](https://blog.ne0xsec.cn/about/): Author profile, technical stack, and background.
+- [Archive](https://blog.ne0xsec.cn/archive/): Chronological index of all published writings.
+
+## Articles
+- [我的第一篇文章](https://blog.ne0xsec.cn/posts/my-first-md/): 显示在文章列表和元数据中的简短摘要。
+
+## Full Text Dump
+- [Full Text Archive](https://blog.ne0xsec.cn/llms-full.txt): Complete, concatenated Markdown content of all public articles for full-context ingestion.
