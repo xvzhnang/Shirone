@@ -1,5 +1,4 @@
 name: Deploy Shirone Blog
-
 on:
   push:
     branches: [main]
@@ -14,12 +13,12 @@ jobs:
       - name: Checkout Theme Repo
         uses: actions/checkout@v4
 
-      - name: Setup Node.js & pnpm
+      - name: Setup pnpm
         uses: pnpm/action-setup@v3
         with:
           version: 9
 
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -38,5 +37,5 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.CONTENT_ACCESS_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}   # ✅修复：使用仓库内置token推送gh‑pages
           publish_dir: ./dist
