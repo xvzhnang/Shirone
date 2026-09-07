@@ -15,6 +15,7 @@
     <summary>显示在文章列表和元数据中的简短摘要。</summary>
     <content type="html"><![CDATA[<h1>我的第一篇文章</h1>
 <h2>这是一级标题</h2>
+<h3>这是三级标题</h3>
 ]]></content>
     <author><name>序章</name></author>
     <category term="写作"/>
