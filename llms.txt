@@ -10,7 +10,7 @@ This is the llms.txt file for Ne0XSec. It provides a machine-readable directory 
 - [Archive](https://blog.ne0xsec.cn/archive/): Chronological index of all published writings.
 
 ## Articles
-- [我的第一篇文章](https://blog.ne0xsec.cn/posts/my-first-md/): 显示在文章列表和元数据中的简短摘要。
+- [【 比赛篇 | CTF 】2025CISCN暨长城杯](https://blog.ne0xsec.cn/posts/2025-cisc--and-great-wall-cup/): 显示在文章列表和元数据中的简短摘要。
 
 ## Full Text Dump
 - [Full Text Archive](https://blog.ne0xsec.cn/llms-full.txt): Complete, concatenated Markdown content of all public articles for full-context ingestion.
