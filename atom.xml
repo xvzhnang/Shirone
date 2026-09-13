@@ -318,7 +318,7 @@ $$</p>
 <p><code>checksec</code>查保护:
 <img src="https://xvzhangblog-1320906906.cos.ap-chengdu.myqcloud.com/blog-image/image-20260419174747687.png" alt="image-20260419174747687" /></p>
 <p>有<code>canary</code>和<code>NX</code>保护</p>
-<p>``ida`反编译:</p>
+<p><code>ida</code>反编译:</p>
 <pre><code>int __cdecl main(int argc, const char **argv, const char **envp)
 {
   init(&amp;argc);

@@ -471,7 +471,7 @@ $$
 
 有`canary`和`NX`保护
 
-``ida`反编译:
+`ida`反编译:
 ```c
 int __cdecl main(int argc, const char **argv, const char **envp)
 {
