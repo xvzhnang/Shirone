@@ -456,7 +456,7 @@ $$
 
 - **URL**: https://blog.ne0xsec.cn/posts/pwn-beginner-formatted-strings/
 - **Published**: 2026-04-19
-- **Category**: PWN学习篇
+- **Category**: CTF学习篇
 - **Tags**: 学习篇, ctfshow, PWN入门, 格式化字符串
 - **Description**: CTFSHOW pwn刷题入门记录，格式化字符串。
 
@@ -1314,7 +1314,7 @@ unsigned __int64 __fastcall leak(int *a1)
 
 - **URL**: https://blog.ne0xsec.cn/posts/pwn-introduction-stack-overflow/
 - **Published**: 2026-04-10
-- **Category**: PWN学习篇
+- **Category**: CTF学习篇
 - **Tags**: 学习篇, ctfshow, PWN入门, 栈溢出
 - **Description**: CTFSHOW pwn刷题入门记录，栈溢出。
 

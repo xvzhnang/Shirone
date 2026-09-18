@@ -1077,7 +1077,7 @@ unsigned __int64 __fastcall leak(int *a1)
 <p>获取<code>flag</code>的函数位<code>get_flag()</code>,但是需要我们输入一个与<code>secret</code>相同的字符串才能获取到<code>flag</code>,而<code>secret</code>是由<code>/dev/urandom</code>生成的.<code>leak</code>函数可以泄露栈上<code>8</code>字节的数据,<code>fmt_attack</code>则是一个格式化字符串漏洞.思路就是</p>
 ]]></content>
     <author><name>序章</name></author>
-    <category term="PWN学习篇"/>
+    <category term="CTF学习篇"/>
   </entry>
   <entry>
     <title>[学习篇 | ctfshow] pwn入门-栈溢出</title>
@@ -3214,7 +3214,7 @@ sh.interactive()
 </blockquote>
 ]]></content>
     <author><name>序章</name></author>
-    <category term="PWN学习篇"/>
+    <category term="CTF学习篇"/>
   </entry>
   <entry>
     <title>[比赛篇 | SHCTF]第三届SHCTFWP</title>
