@@ -1,4 +1,290 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Ne0XSec</title><description>xvzhang`s blog</description><link>https://blog.ne0xsec.cn/</link><language>zh_CN</language><item><title>🔒 markdown公式写法大全</title><link>https://blog.ne0xsec.cn/posts/markdown/</link><guid isPermaLink="true">https://blog.ne0xsec.cn/posts/markdown/</guid><description>该文章内容已加密，请输入密码后查看。</description><pubDate>Wed, 09 Sep 2026 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;em&gt;🔒 本文已加密保护，请访问博客网站输入密码阅读全文。&lt;/em&gt;&lt;/p&gt;</content:encoded></item><item><title>[学习篇 | ctfshow] pwn入门-格式化字符串</title><link>https://blog.ne0xsec.cn/posts/pwn-beginner-formatted-strings/</link><guid isPermaLink="true">https://blog.ne0xsec.cn/posts/pwn-beginner-formatted-strings/</guid><description>CTFSHOW pwn刷题入门记录，格式化字符串。</description><pubDate>Sun, 19 Apr 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;刷题&lt;/h1&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Ne0XSec</title><description>xvzhang`s blog</description><link>https://blog.ne0xsec.cn/</link><language>zh_CN</language><item><title>markdown公式写法大全</title><link>https://blog.ne0xsec.cn/posts/markdown/</link><guid isPermaLink="true">https://blog.ne0xsec.cn/posts/markdown/</guid><description>ai 整理的 markdown 公式语法，放在这里方便速查。</description><pubDate>Wed, 09 Sep 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;Markdown 数学 · 密码学 · 机器学习公式大全&lt;/h1&gt;
+&lt;hr /&gt;
+&lt;h2&gt;一、基础用法&lt;/h2&gt;
+&lt;h3&gt;1. 行内公式&lt;/h3&gt;
+&lt;p&gt;这是一个行内公式：$a^2 + b^2 = c^2$&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$a^2 + b^2 = c^2$
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;2. 块级公式&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;$$
+a^2 + b^2 = c^2
+$$
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;$$
+a^2 + b^2 = c^2
+$$&lt;/h2&gt;
+&lt;h2&gt;二、上下标&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;$x^2 \quad x_1 \quad x_i^n$
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;$$
+x^2 \quad x_1 \quad x_i^n
+$$&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;三、分数与根号&lt;/h2&gt;
+&lt;h3&gt;1. 分数&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;$\frac{a}{b} \quad \dfrac{a}{b}$
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;$$
+\frac{a}{b} \quad \dfrac{a}{b}
+$$&lt;/p&gt;
+&lt;h3&gt;2. 根号&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;$\sqrt{x} \quad \sqrt[n]{x}$
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;$$
+\sqrt{x} \quad \sqrt[n]{x}
+$$&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;四、运算符&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;$+ \; - \; \times \; \div$
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;; - ; \times ; \div
+$$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;$\pm \; \mp \; \cdot \; \ast$
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;$$
+\pm ; \mp ; \cdot ; \ast
+$$&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;五、关系符号&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;$= \neq \approx \sim \equiv$
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;$$
+= \neq \approx \sim \equiv
+$$
+$$
+\begin{aligned}
+\neq \
+\notin  \
+\vec{a} \
+A\vec{x} = \lambda \vec{x}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$&amp;gt; &amp;lt; \ge \le \gg \ll$
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;$$&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;lt; \ge \le \gg \ll
+$$&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr /&gt;
+&lt;h2&gt;六、集合与逻辑&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;$\in \notin \subset \subseteq \supset$
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;$$
+\in \notin \subset \subseteq \supset
+$$&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$\cup \cap \emptyset$
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;$$
+\cup \cap \emptyset
+$$&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$\forall \exists \neg$
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;$$
+\forall \exists \neg
+$$&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;七、求和 / 积分 / 极限&lt;/h2&gt;
+&lt;h3&gt;1. 求和&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;$\sum_{i=1}^{n} i$
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;$$
+\sum_{i=1}^{n} i
+$$&lt;/p&gt;
+&lt;h3&gt;2. 积分&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;$\int_a^b f(x)\,dx$
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;$$
+\int_a^b f(x),dx
+$$&lt;/p&gt;
+&lt;h3&gt;3. 极限&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;$\lim_{x \to 0} \frac{\sin x}{x}$
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;$$
+\lim_{x \to 0} \frac{\sin x}{x}
+$$&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;八、向量与矩阵&lt;/h2&gt;
+&lt;h3&gt;1. 向量&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;$\vec{a} \quad \mathbf{A}$
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;$$
+\vec{a} \quad \mathbf{A}
+$$&lt;/p&gt;
+&lt;h3&gt;2. 矩阵&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;$$
+\begin{bmatrix}
+1 &amp;amp; 2 \\
+3 &amp;amp; 4
+\end{bmatrix}
+$$
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;$$
+\begin{bmatrix}
+1 &amp;amp; 2 \
+3 &amp;amp; 4
+\end{bmatrix}
+$$&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;九、括号与定界符&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;$( ) \quad [ ] \quad \{ \}$
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;$$
+( ) \quad [ ] \quad { }
+$$&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$\left( \frac{a}{b} \right)$
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;$$
+\left( \frac{a}{b} \right)
+$$&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;十、函数&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;$\sin x \cos x \tan x$
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;$$
+\sin x \cos x \tan x
+$$&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$\log x \ln x \exp x$
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;$$
+\log x \ln x \exp x
+$$&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;十一、希腊字母&lt;/h2&gt;
+&lt;h3&gt;小写&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;$\alpha \beta \gamma \delta \epsilon \theta \lambda \mu \pi \sigma \omega$
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;$$
+\alpha \beta \gamma \delta \epsilon \theta \lambda \mu \pi \sigma \omega
+$$&lt;/p&gt;
+&lt;h3&gt;大写&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;$\Gamma \Delta \Theta \Lambda \Pi \Sigma \Omega$
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;$$
+\Gamma \Delta \Theta \Lambda \Pi \Sigma \Omega
+$$&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;十二、箭头&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;$\to \rightarrow \Leftarrow \Leftrightarrow$
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;$$
+\to \rightarrow \Leftarrow \Leftrightarrow
+$$&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;十三、多行对齐公式&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;$$
+\begin{aligned}
+f(x) &amp;amp;= x^2 + 1 \\
+     &amp;amp;= (x+1)^2 - 2x
+\end{aligned}
+$$
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;$$
+\begin{aligned}
+f(x) &amp;amp;= x^2 + 1 \
+&amp;amp;= (x+1)^2 - 2x
+\end{aligned}
+$$&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;十四、分段函数&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;$$
+f(x)=
+\begin{cases}
+x^2, &amp;amp; x \ge 0 \\
+-x, &amp;amp; x &amp;lt; 0
+\end{cases}
+$$
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;$$
+f(x)=
+\begin{cases}
+x^2, &amp;amp; x \ge 0 \
+-x, &amp;amp; x &amp;lt; 0
+\end{cases}
+$$&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;十五、密码学 / 安全公式&lt;/h2&gt;
+&lt;h3&gt;RSA&lt;/h3&gt;
+&lt;p&gt;$$
+n = pq,\quad \varphi(n) = (p-1)(q-1)
+$$&lt;/p&gt;
+&lt;p&gt;$$
+c \equiv m^e \pmod n,\quad m \equiv c^d \pmod n
+$$&lt;/p&gt;
+&lt;h3&gt;ECC&lt;/h3&gt;
+&lt;p&gt;$$
+y^2 = x^3 + ax + b \pmod p
+$$&lt;/p&gt;
+&lt;p&gt;$$
+Q = kP
+$$&lt;/p&gt;
+&lt;h3&gt;Hash / Birthday Attack&lt;/h3&gt;
+&lt;p&gt;$$
+h = H(m)
+$$&lt;/p&gt;
+&lt;p&gt;$$
+P \approx 1 - e^{-k^2 / 2N}
+$$&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;十六、线性代数 / 机器学习&lt;/h2&gt;
+&lt;h3&gt;特征值&lt;/h3&gt;
+&lt;p&gt;$$
+A\vec{x} = \lambda \vec{x}
+$$&lt;/p&gt;
+&lt;h3&gt;欧氏距离&lt;/h3&gt;
+&lt;p&gt;$$
+d(x,y) = \sqrt{\sum (x_i - y_i)^2}
+$$&lt;/p&gt;
+&lt;h3&gt;线性回归&lt;/h3&gt;
+&lt;p&gt;$$
+y = Xw + b
+$$&lt;/p&gt;
+&lt;h3&gt;梯度下降&lt;/h3&gt;
+&lt;p&gt;$$
+\theta_{t+1} = \theta_t - \eta \nabla L
+$$&lt;/p&gt;
+&lt;h3&gt;Softmax&lt;/h3&gt;
+&lt;p&gt;$$
+\mathrm{softmax}(x_i) = \frac{e^{x_i}}{\sum_j e^{x_j}}
+$$&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;十七、概率论（安全 / 机器学习常用）&lt;/h2&gt;
+&lt;h3&gt;条件概率&lt;/h3&gt;
+&lt;p&gt;$$
+P(A \mid B) = \frac{P(A \cap B)}{P(B)}
+$$&lt;/p&gt;
+&lt;h3&gt;贝叶斯公式&lt;/h3&gt;
+&lt;p&gt;$$
+P(A \mid B) = \frac{P(B \mid A) P(A)}{P(B)}
+$$&lt;/p&gt;
+&lt;h3&gt;数学期望与方差&lt;/h3&gt;
+&lt;p&gt;$$
+E[X] = \sum x p(x)
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\mathrm{Var}(X) = E[(X - E[X])^2]
+$$&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;十八、信息论（密码学常用）&lt;/h2&gt;
+&lt;h3&gt;信息熵&lt;/h3&gt;
+&lt;p&gt;$$
+H(X) = -\sum p(x) \log p(x)
+$$&lt;/p&gt;
+&lt;h3&gt;联合熵与条件熵&lt;/h3&gt;
+&lt;p&gt;$$
+H(X,Y) = -\sum p(x,y)\log p(x,y)
+$$&lt;/p&gt;
+&lt;p&gt;$$
+H(X \mid Y) = H(X,Y) - H(Y)
+$$&lt;/p&gt;
+&lt;h3&gt;互信息&lt;/h3&gt;
+&lt;p&gt;$$
+I(X;Y) = H(X) - H(X \mid Y)
+$$&lt;/p&gt;
+</content:encoded></item><item><title>[学习篇 | ctfshow] pwn入门-格式化字符串</title><link>https://blog.ne0xsec.cn/posts/pwn-beginner-formatted-strings/</link><guid isPermaLink="true">https://blog.ne0xsec.cn/posts/pwn-beginner-formatted-strings/</guid><description>CTFSHOW pwn刷题入门记录，格式化字符串。</description><pubDate>Sun, 19 Apr 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;刷题&lt;/h1&gt;
 &lt;h2&gt;pwn_091&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;开始格式化字符串了，先来个简单的吧#&lt;/p&gt;

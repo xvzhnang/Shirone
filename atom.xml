@@ -7,13 +7,299 @@
   <id>https://blog.ne0xsec.cn/</id>
   <updated>2026-09-09T00:00:00.000Z</updated>
   <entry>
-    <title>🔒 markdown公式写法大全</title>
+    <title>markdown公式写法大全</title>
     <link href="https://blog.ne0xsec.cn/posts/markdown/" rel="alternate" type="text/html"/>
     <id>https://blog.ne0xsec.cn/posts/markdown/</id>
     <published>2026-09-09T00:00:00.000Z</published>
     <updated>2026-09-09T00:00:00.000Z</updated>
-    <summary>该文章内容已加密，请输入密码后查看。</summary>
-    <content type="html"><![CDATA[<p><em>🔒 本文已加密保护，请访问博客网站输入密码阅读全文。</em></p>]]></content>
+    <summary>ai 整理的 markdown 公式语法，放在这里方便速查。</summary>
+    <content type="html"><![CDATA[<h1>Markdown 数学 · 密码学 · 机器学习公式大全</h1>
+<hr />
+<h2>一、基础用法</h2>
+<h3>1. 行内公式</h3>
+<p>这是一个行内公式：$a^2 + b^2 = c^2$</p>
+<pre><code>$a^2 + b^2 = c^2$
+</code></pre>
+<h3>2. 块级公式</h3>
+<pre><code>$$
+a^2 + b^2 = c^2
+$$
+</code></pre>
+<h2>$$
+a^2 + b^2 = c^2
+$$</h2>
+<h2>二、上下标</h2>
+<pre><code>$x^2 \quad x_1 \quad x_i^n$
+</code></pre>
+<p>$$
+x^2 \quad x_1 \quad x_i^n
+$$</p>
+<hr />
+<h2>三、分数与根号</h2>
+<h3>1. 分数</h3>
+<pre><code>$\frac{a}{b} \quad \dfrac{a}{b}$
+</code></pre>
+<p>$$
+\frac{a}{b} \quad \dfrac{a}{b}
+$$</p>
+<h3>2. 根号</h3>
+<pre><code>$\sqrt{x} \quad \sqrt[n]{x}$
+</code></pre>
+<p>$$
+\sqrt{x} \quad \sqrt[n]{x}
+$$</p>
+<hr />
+<h2>四、运算符</h2>
+<pre><code>$+ \; - \; \times \; \div$
+</code></pre>
+<p>$$</p>
+<ul>
+<li>; - ; \times ; \div
+$$</li>
+</ul>
+<pre><code>$\pm \; \mp \; \cdot \; \ast$
+</code></pre>
+<p>$$
+\pm ; \mp ; \cdot ; \ast
+$$</p>
+<hr />
+<h2>五、关系符号</h2>
+<pre><code>$= \neq \approx \sim \equiv$
+</code></pre>
+<p>$$
+= \neq \approx \sim \equiv
+$$
+$$
+\begin{aligned}
+\neq \
+\notin  \
+\vec{a} \
+A\vec{x} = \lambda \vec{x}
+\end{aligned}
+$$</p>
+<pre><code>$&gt; &lt; \ge \le \gg \ll$
+</code></pre>
+<p>$$</p>
+<blockquote>
+<p>&lt; \ge \le \gg \ll
+$$</p>
+</blockquote>
+<hr />
+<h2>六、集合与逻辑</h2>
+<pre><code>$\in \notin \subset \subseteq \supset$
+</code></pre>
+<p>$$
+\in \notin \subset \subseteq \supset
+$$</p>
+<pre><code>$\cup \cap \emptyset$
+</code></pre>
+<p>$$
+\cup \cap \emptyset
+$$</p>
+<pre><code>$\forall \exists \neg$
+</code></pre>
+<p>$$
+\forall \exists \neg
+$$</p>
+<hr />
+<h2>七、求和 / 积分 / 极限</h2>
+<h3>1. 求和</h3>
+<pre><code>$\sum_{i=1}^{n} i$
+</code></pre>
+<p>$$
+\sum_{i=1}^{n} i
+$$</p>
+<h3>2. 积分</h3>
+<pre><code>$\int_a^b f(x)\,dx$
+</code></pre>
+<p>$$
+\int_a^b f(x),dx
+$$</p>
+<h3>3. 极限</h3>
+<pre><code>$\lim_{x \to 0} \frac{\sin x}{x}$
+</code></pre>
+<p>$$
+\lim_{x \to 0} \frac{\sin x}{x}
+$$</p>
+<hr />
+<h2>八、向量与矩阵</h2>
+<h3>1. 向量</h3>
+<pre><code>$\vec{a} \quad \mathbf{A}$
+</code></pre>
+<p>$$
+\vec{a} \quad \mathbf{A}
+$$</p>
+<h3>2. 矩阵</h3>
+<pre><code>$$
+\begin{bmatrix}
+1 &amp; 2 \\
+3 &amp; 4
+\end{bmatrix}
+$$
+</code></pre>
+<p>$$
+\begin{bmatrix}
+1 &amp; 2 \
+3 &amp; 4
+\end{bmatrix}
+$$</p>
+<hr />
+<h2>九、括号与定界符</h2>
+<pre><code>$( ) \quad [ ] \quad \{ \}$
+</code></pre>
+<p>$$
+( ) \quad [ ] \quad { }
+$$</p>
+<pre><code>$\left( \frac{a}{b} \right)$
+</code></pre>
+<p>$$
+\left( \frac{a}{b} \right)
+$$</p>
+<hr />
+<h2>十、函数</h2>
+<pre><code>$\sin x \cos x \tan x$
+</code></pre>
+<p>$$
+\sin x \cos x \tan x
+$$</p>
+<pre><code>$\log x \ln x \exp x$
+</code></pre>
+<p>$$
+\log x \ln x \exp x
+$$</p>
+<hr />
+<h2>十一、希腊字母</h2>
+<h3>小写</h3>
+<pre><code>$\alpha \beta \gamma \delta \epsilon \theta \lambda \mu \pi \sigma \omega$
+</code></pre>
+<p>$$
+\alpha \beta \gamma \delta \epsilon \theta \lambda \mu \pi \sigma \omega
+$$</p>
+<h3>大写</h3>
+<pre><code>$\Gamma \Delta \Theta \Lambda \Pi \Sigma \Omega$
+</code></pre>
+<p>$$
+\Gamma \Delta \Theta \Lambda \Pi \Sigma \Omega
+$$</p>
+<hr />
+<h2>十二、箭头</h2>
+<pre><code>$\to \rightarrow \Leftarrow \Leftrightarrow$
+</code></pre>
+<p>$$
+\to \rightarrow \Leftarrow \Leftrightarrow
+$$</p>
+<hr />
+<h2>十三、多行对齐公式</h2>
+<pre><code>$$
+\begin{aligned}
+f(x) &amp;= x^2 + 1 \\
+     &amp;= (x+1)^2 - 2x
+\end{aligned}
+$$
+</code></pre>
+<p>$$
+\begin{aligned}
+f(x) &amp;= x^2 + 1 \
+&amp;= (x+1)^2 - 2x
+\end{aligned}
+$$</p>
+<hr />
+<h2>十四、分段函数</h2>
+<pre><code>$$
+f(x)=
+\begin{cases}
+x^2, &amp; x \ge 0 \\
+-x, &amp; x &lt; 0
+\end{cases}
+$$
+</code></pre>
+<p>$$
+f(x)=
+\begin{cases}
+x^2, &amp; x \ge 0 \
+-x, &amp; x &lt; 0
+\end{cases}
+$$</p>
+<hr />
+<h2>十五、密码学 / 安全公式</h2>
+<h3>RSA</h3>
+<p>$$
+n = pq,\quad \varphi(n) = (p-1)(q-1)
+$$</p>
+<p>$$
+c \equiv m^e \pmod n,\quad m \equiv c^d \pmod n
+$$</p>
+<h3>ECC</h3>
+<p>$$
+y^2 = x^3 + ax + b \pmod p
+$$</p>
+<p>$$
+Q = kP
+$$</p>
+<h3>Hash / Birthday Attack</h3>
+<p>$$
+h = H(m)
+$$</p>
+<p>$$
+P \approx 1 - e^{-k^2 / 2N}
+$$</p>
+<hr />
+<h2>十六、线性代数 / 机器学习</h2>
+<h3>特征值</h3>
+<p>$$
+A\vec{x} = \lambda \vec{x}
+$$</p>
+<h3>欧氏距离</h3>
+<p>$$
+d(x,y) = \sqrt{\sum (x_i - y_i)^2}
+$$</p>
+<h3>线性回归</h3>
+<p>$$
+y = Xw + b
+$$</p>
+<h3>梯度下降</h3>
+<p>$$
+\theta_{t+1} = \theta_t - \eta \nabla L
+$$</p>
+<h3>Softmax</h3>
+<p>$$
+\mathrm{softmax}(x_i) = \frac{e^{x_i}}{\sum_j e^{x_j}}
+$$</p>
+<hr />
+<h2>十七、概率论（安全 / 机器学习常用）</h2>
+<h3>条件概率</h3>
+<p>$$
+P(A \mid B) = \frac{P(A \cap B)}{P(B)}
+$$</p>
+<h3>贝叶斯公式</h3>
+<p>$$
+P(A \mid B) = \frac{P(B \mid A) P(A)}{P(B)}
+$$</p>
+<h3>数学期望与方差</h3>
+<p>$$
+E[X] = \sum x p(x)
+$$</p>
+<p>$$
+\mathrm{Var}(X) = E[(X - E[X])^2]
+$$</p>
+<hr />
+<h2>十八、信息论（密码学常用）</h2>
+<h3>信息熵</h3>
+<p>$$
+H(X) = -\sum p(x) \log p(x)
+$$</p>
+<h3>联合熵与条件熵</h3>
+<p>$$
+H(X,Y) = -\sum p(x,y)\log p(x,y)
+$$</p>
+<p>$$
+H(X \mid Y) = H(X,Y) - H(Y)
+$$</p>
+<h3>互信息</h3>
+<p>$$
+I(X;Y) = H(X) - H(X \mid Y)
+$$</p>
+]]></content>
     <author><name>序章</name></author>
     <category term="随笔"/>
   </entry>

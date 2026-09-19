@@ -10,6 +10,7 @@ This is the llms.txt file for Ne0XSec. It provides a machine-readable directory 
 - [Archive](https://blog.ne0xsec.cn/archive/): Chronological index of all published writings.
 
 ## Articles
+- [markdown公式写法大全](https://blog.ne0xsec.cn/posts/markdown/): ai 整理的 markdown 公式语法，放在这里方便速查。
 - [[学习篇 | ctfshow] pwn入门-格式化字符串](https://blog.ne0xsec.cn/posts/pwn-beginner-formatted-strings/): CTFSHOW pwn刷题入门记录，格式化字符串。
 - [[学习篇 | ctfshow] pwn入门-栈溢出](https://blog.ne0xsec.cn/posts/pwn-introduction-stack-overflow/): CTFSHOW pwn刷题入门记录，栈溢出。
 - [[比赛篇 | SHCTF]第三届SHCTFWP](https://blog.ne0xsec.cn/posts/the-third-shctfwp/): 记录一下本次比赛中成功解出来的题目
