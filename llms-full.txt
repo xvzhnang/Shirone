@@ -1,6 +1,24 @@
 # Ne0XSec - Full Content Archive
 
-> Generated on 2026-09-21. Contains full text of all public articles for LLM ingestion.
+> Generated on 2026-09-22. Contains full text of all public articles for LLM ingestion.
+
+---
+
+## 【考研篇|数据结构】绪论
+
+- **URL**: https://blog.ne0xsec.cn/posts/data-structures-introduction/
+- **Published**: 2026-09-22
+
+# 【考研篇|数据结构】绪论
+
+---
+
+## 【考研篇|数学】数学归纳法
+
+- **URL**: https://blog.ne0xsec.cn/posts/mathematical-induction/
+- **Published**: 2026-09-22
+
+# 【考研篇|数学】数学归纳法
 
 ---
 
