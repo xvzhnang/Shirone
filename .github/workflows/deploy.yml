@@ -1,10 +1,22 @@
 name: Deploy Shirone Blog
+
 on:
   push:
     branches: [main]
   repository_dispatch:
     types: [content-update] # 响应内容仓库发送的派发事件
   workflow_dispatch:
+
+# 只保留最新一次部署，避免并发推送 gh-pages 冲突
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+# 部署到 GitHub Pages 所需权限
+permissions:
+  contents: write
+  pages: write
+  id-token: write
 
 jobs:
   build-and-deploy:
@@ -27,9 +39,16 @@ jobs:
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Clean content working copy
+        run: rm -rf .content-src
+
       - name: Pull Private Content & Build
         env:
-          CONTENT_REPO_URL: "https://x-access-token:${{ secrets.CONTENT_ACCESS_TOKEN }}@github.com/${{ github.repository_owner }}/shirone-content.git"
+          # ✅ 修复：PAT 直接作为 userinfo，不要加 x-access-token: 前缀
+          # x-access-token 是 GitHub App 安装令牌专用，PAT 使用会导致 401
+          CONTENT_REPO_URL: "https://${{ secrets.CONTENT_ACCESS_TOKEN }}@github.com/xvzhnang/shirone-content.git"
+          # 如果你有多个 ref（如分支名不同），可以显式指定：
+          # CONTENT_REPO_REF: main
         run: |
           pnpm content:sync
           pnpm build
@@ -37,5 +56,5 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}   # ✅修复：使用仓库内置token推送gh‑pages
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
