@@ -39,9 +39,6 @@ jobs:
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Clean content working copy
-        run: rm -rf .content-src
-
       - name: Pull Private Content & Build
         env:
           # ✅ 修复：PAT 直接作为 userinfo，不要加 x-access-token: 前缀
