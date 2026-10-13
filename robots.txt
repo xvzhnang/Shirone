@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: /_astro/
 
-Sitemap: https://shirone.mysqil.com/sitemap-index.xml
+Sitemap: https://xvzhang.ne0xsec.cn/sitemap-index.xml

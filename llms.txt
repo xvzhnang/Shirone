@@ -1,23 +1,22 @@
-# Shirone
+# Ne0XSec
 
-> A Material 3 anime blog
+> A blog about cybersecurity
 
-This is the llms.txt file for Shirone. It provides a machine-readable directory of published articles and core pages for Large Language Models.
+This is the llms.txt file for Ne0XSec. It provides a machine-readable directory of published articles and core pages for Large Language Models.
 
 ## Core Pages
-- [Home](https://shirone.mysqil.com/): Main blog entrance and latest post stream.
-- [About](https://shirone.mysqil.com/about/): Author profile, technical stack, and background.
-- [Archive](https://shirone.mysqil.com/archive/): Chronological index of all published writings.
+- [Home](https://xvzhang.ne0xsec.cn/): Main blog entrance and latest post stream.
+- [About](https://xvzhang.ne0xsec.cn/about/): Author profile, technical stack, and background.
+- [Archive](https://xvzhang.ne0xsec.cn/archive/): Chronological index of all published writings.
 
 ## Articles
-- [Welcome to the Shirone Content Repo](https://shirone.mysqil.com/posts/guideen/): A sample post showing Shirone's typography and metadata configuration.
-- [【考研篇|数据结构】绪论](https://shirone.mysqil.com/posts/data-structures-introduction/)
-- [markdown公式写法大全](https://shirone.mysqil.com/posts/markdown/): ai 整理的 markdown 公式语法，放在这里方便速查。
-- [[学习篇 | ctfshow] pwn入门-格式化字符串](https://shirone.mysqil.com/posts/pwn-beginner-formatted-strings/): CTFSHOW pwn刷题入门记录，格式化字符串。
-- [[学习篇 | ctfshow] pwn入门-栈溢出](https://shirone.mysqil.com/posts/pwn-introduction-stack-overflow/): CTFSHOW pwn刷题入门记录，栈溢出。
-- [[比赛篇 | SHCTF]第三届SHCTFWP](https://shirone.mysqil.com/posts/the-third-shctfwp/): 记录一下本次比赛中成功解出来的题目
-- [[比赛篇 | CTF] 2025春秋杯冬季赛WP](https://shirone.mysqil.com/posts/2025-spring-and-autumn-cup-winter-season-wp/): 记录一下本次比赛中成功解出来的题目
-- [【 比赛篇 | CTF 】2025CISCN暨长城杯](https://shirone.mysqil.com/posts/2025-cisc--and-great-wall-cup/): 记录一下本次比赛中成功解出来的题目
+- [【考研篇|数据结构】绪论](https://xvzhang.ne0xsec.cn/posts/data-structures-introduction/)
+- [markdown公式写法大全](https://xvzhang.ne0xsec.cn/posts/markdown/): ai 整理的 markdown 公式语法，放在这里方便速查。
+- [[学习篇 | ctfshow] pwn入门-格式化字符串](https://xvzhang.ne0xsec.cn/posts/pwn-beginner-formatted-strings/): CTFSHOW pwn刷题入门记录，格式化字符串。
+- [[学习篇 | ctfshow] pwn入门-栈溢出](https://xvzhang.ne0xsec.cn/posts/pwn-introduction-stack-overflow/): CTFSHOW pwn刷题入门记录，栈溢出。
+- [[比赛篇 | SHCTF]第三届SHCTFWP](https://xvzhang.ne0xsec.cn/posts/the-third-shctfwp/): 记录一下本次比赛中成功解出来的题目
+- [[比赛篇 | CTF] 2025春秋杯冬季赛WP](https://xvzhang.ne0xsec.cn/posts/2025-spring-and-autumn-cup-winter-season-wp/): 记录一下本次比赛中成功解出来的题目
+- [【 比赛篇 | CTF 】2025CISCN暨长城杯](https://xvzhang.ne0xsec.cn/posts/2025-cisc--and-great-wall-cup/): 记录一下本次比赛中成功解出来的题目
 
 ## Full Text Dump
-- [Full Text Archive](https://shirone.mysqil.com/llms-full.txt): Complete, concatenated Markdown content of all public articles for full-context ingestion.
+- [Full Text Archive](https://xvzhang.ne0xsec.cn/llms-full.txt): Complete, concatenated Markdown content of all public articles for full-context ingestion.
