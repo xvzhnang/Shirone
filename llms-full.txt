@@ -1,23 +1,76 @@
-# Ne0XSec - Full Content Archive
+# Shirone - Full Content Archive
 
-> Generated on 2026-10-05. Contains full text of all public articles for LLM ingestion.
+> Generated on 2026-10-13. Contains full text of all public articles for LLM ingestion.
+
+---
+
+## Welcome to the Shirone Content Repo
+
+- **URL**: https://shirone.mysqil.com/posts/guideen/
+- **Published**: 2026-08-27
+- **Category**: Getting Started
+- **Tags**: Shirone, blog, guide
+- **Description**: A sample post showing Shirone's typography and metadata configuration.
+
+## Welcome
+
+This is a sample post using the content separation architecture. Posts live in a separate content repository, fully decoupled from the theme code.
+
+### Metadata Fields
+
+The frontmatter supports these fields:
+
+- `title`: Post title
+- `published`: Publication date, format `YYYY-MM-DD`
+- `updated`: Last modified date, optional
+- `description`: Post summary
+- `image`: Cover image path or external URL
+- `category`: Post category
+- `tags`: Tag list
+- `pinned`: Whether to pin the post
+- `series`: Series slug, corresponds to `content/series/<slug>.md`
+- `seriesOrder`: Order within series (integer); defaults to publication date
+- `draft`: Whether the post is a draft; drafts are excluded from production builds
+- `comment`: Whether to enable comments for this post
+
+### Code Highlighting
+
+```typescript
+interface SiteIdentity {
+  name: string;
+  repo: string;
+  mode: "external" | "local";
+}
+
+const config: SiteIdentity = {
+  name: "Shirone",
+  repo: "Shirone-Content",
+  mode: "external"
+};
+```
+
+### Blockquote Style
+
+> This is a standard blockquote example.
 
 ---
 
 ## 【考研篇|数据结构】绪论
 
-- **URL**: https://blog.ne0xsec.cn/posts/data-structures-introduction/
+- **URL**: https://shirone.mysqil.com/posts/data-structures-introduction/
 - **Published**: 2026-09-22
 
 ---
 
 ## markdown公式写法大全
 
-- **URL**: https://blog.ne0xsec.cn/posts/markdown/
+- **URL**: https://shirone.mysqil.com/posts/markdown/
 - **Published**: 2026-09-09
 - **Category**: 随笔
 - **Tags**: markdown
 - **Description**: ai 整理的 markdown 公式语法，放在这里方便速查。
+
+# 公式大全
 
 # Markdown 数学 · 密码学 · 机器学习公式大全
 ---
@@ -461,7 +514,7 @@ $$
 
 ## [学习篇 | ctfshow] pwn入门-格式化字符串
 
-- **URL**: https://blog.ne0xsec.cn/posts/pwn-beginner-formatted-strings/
+- **URL**: https://shirone.mysqil.com/posts/pwn-beginner-formatted-strings/
 - **Published**: 2026-04-19
 - **Category**: CTF学习篇
 - **Tags**: 学习篇, ctfshow, PWN入门, 格式化字符串
@@ -1319,7 +1372,7 @@ unsigned __int64 __fastcall leak(int *a1)
 
 ## [学习篇 | ctfshow] pwn入门-栈溢出
 
-- **URL**: https://blog.ne0xsec.cn/posts/pwn-introduction-stack-overflow/
+- **URL**: https://shirone.mysqil.com/posts/pwn-introduction-stack-overflow/
 - **Published**: 2026-04-10
 - **Category**: CTF学习篇
 - **Tags**: 学习篇, ctfshow, PWN入门, 栈溢出
@@ -3663,7 +3716,7 @@ sh.interactive()
 
 ## [比赛篇 | SHCTF]第三届SHCTFWP
 
-- **URL**: https://blog.ne0xsec.cn/posts/the-third-shctfwp/
+- **URL**: https://shirone.mysqil.com/posts/the-third-shctfwp/
 - **Published**: 2026-02-03
 - **Category**: CTF比赛篇
 - **Tags**: CTF比赛合集, SHCTF
@@ -5080,7 +5133,7 @@ def flag_view(request):
 
 ## [比赛篇 | CTF] 2025春秋杯冬季赛WP
 
-- **URL**: https://blog.ne0xsec.cn/posts/2025-spring-and-autumn-cup-winter-season-wp/
+- **URL**: https://shirone.mysqil.com/posts/2025-spring-and-autumn-cup-winter-season-wp/
 - **Published**: 2026-01-30
 - **Category**: CTF比赛篇
 - **Tags**: CTF比赛合集, 春秋杯
@@ -7972,7 +8025,7 @@ io.interactive()
 
 ## 【 比赛篇 | CTF 】2025CISCN暨长城杯
 
-- **URL**: https://blog.ne0xsec.cn/posts/2025-cisc--and-great-wall-cup/
+- **URL**: https://shirone.mysqil.com/posts/2025-cisc--and-great-wall-cup/
 - **Published**: 2025-12-28
 - **Category**: CTF比赛篇
 - **Tags**: CTF比赛合集, CISCN, 长城杯

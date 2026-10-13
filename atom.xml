@@ -1,29 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh_CN">
-  <title>Ne0XSec</title>
-  <subtitle>xvzhang`s blog</subtitle>
-  <link href="https://blog.ne0xsec.cn/" rel="alternate" type="text/html"/>
-  <link href="https://blog.ne0xsec.cn/atom.xml" rel="self" type="application/atom+xml"/>
-  <id>https://blog.ne0xsec.cn/</id>
+  <title>Shirone</title>
+  <subtitle>A Material 3 anime blog</subtitle>
+  <link href="https://shirone.mysqil.com/" rel="alternate" type="text/html"/>
+  <link href="https://shirone.mysqil.com/atom.xml" rel="self" type="application/atom+xml"/>
+  <id>https://shirone.mysqil.com/</id>
   <updated>2026-09-22T12:56:27.493Z</updated>
   <entry>
+    <title>Welcome to the Shirone Content Repo</title>
+    <link href="https://shirone.mysqil.com/posts/guideen/" rel="alternate" type="text/html"/>
+    <id>https://shirone.mysqil.com/posts/guideen/</id>
+    <published>2026-08-27T00:00:00.000Z</published>
+    <updated>2026-08-27T00:00:00.000Z</updated>
+    <summary>A sample post showing Shirone&apos;s typography and metadata configuration.</summary>
+    <content type="html"><![CDATA[<h2>Welcome</h2>
+<p>This is a sample post using the content separation architecture. Posts live in a separate content repository, fully decoupled from the theme code.</p>
+<h3>Metadata Fields</h3>
+<p>The frontmatter supports these fields:</p>
+<ul>
+<li><code>title</code>: Post title</li>
+<li><code>published</code>: Publication date, format <code>YYYY-MM-DD</code></li>
+<li><code>updated</code>: Last modified date, optional</li>
+<li><code>description</code>: Post summary</li>
+<li><code>image</code>: Cover image path or external URL</li>
+<li><code>category</code>: Post category</li>
+<li><code>tags</code>: Tag list</li>
+<li><code>pinned</code>: Whether to pin the post</li>
+<li><code>series</code>: Series slug, corresponds to <code>content/series/&lt;slug&gt;.md</code></li>
+<li><code>seriesOrder</code>: Order within series (integer); defaults to publication date</li>
+<li><code>draft</code>: Whether the post is a draft; drafts are excluded from production builds</li>
+<li><code>comment</code>: Whether to enable comments for this post</li>
+</ul>
+<h3>Code Highlighting</h3>
+<pre><code>interface SiteIdentity {
+  name: string;
+  repo: string;
+  mode: "external" | "local";
+}
+
+const config: SiteIdentity = {
+  name: "Shirone",
+  repo: "Shirone-Content",
+  mode: "external"
+};
+</code></pre>
+<h3>Blockquote Style</h3>
+<blockquote>
+<p>This is a standard blockquote example.</p>
+</blockquote>
+]]></content>
+    <author><name>Shirone</name></author>
+    <category term="Getting Started"/>
+  </entry>
+  <entry>
     <title>【考研篇|数据结构】绪论</title>
-    <link href="https://blog.ne0xsec.cn/posts/data-structures-introduction/" rel="alternate" type="text/html"/>
-    <id>https://blog.ne0xsec.cn/posts/data-structures-introduction/</id>
+    <link href="https://shirone.mysqil.com/posts/data-structures-introduction/" rel="alternate" type="text/html"/>
+    <id>https://shirone.mysqil.com/posts/data-structures-introduction/</id>
     <published>2026-09-22T12:56:27.493Z</published>
     <updated>2026-09-22T12:56:27.493Z</updated>
     <summary></summary>
     <content type="html"><![CDATA[]]></content>
-    <author><name>序章</name></author>
+    <author><name>Shirone</name></author>
   </entry>
   <entry>
     <title>markdown公式写法大全</title>
-    <link href="https://blog.ne0xsec.cn/posts/markdown/" rel="alternate" type="text/html"/>
-    <id>https://blog.ne0xsec.cn/posts/markdown/</id>
+    <link href="https://shirone.mysqil.com/posts/markdown/" rel="alternate" type="text/html"/>
+    <id>https://shirone.mysqil.com/posts/markdown/</id>
     <published>2026-09-09T00:00:00.000Z</published>
     <updated>2026-09-09T00:00:00.000Z</updated>
     <summary>ai 整理的 markdown 公式语法，放在这里方便速查。</summary>
-    <content type="html"><![CDATA[<h1>Markdown 数学 · 密码学 · 机器学习公式大全</h1>
+    <content type="html"><![CDATA[<h1>公式大全</h1>
+<h1>Markdown 数学 · 密码学 · 机器学习公式大全</h1>
 <hr />
 <h2>一、基础用法</h2>
 <h3>1. 行内公式</h3>
@@ -310,13 +357,13 @@ $$</p>
 I(X;Y) = H(X) - H(X \mid Y)
 $$</p>
 ]]></content>
-    <author><name>序章</name></author>
+    <author><name>Shirone</name></author>
     <category term="随笔"/>
   </entry>
   <entry>
     <title>[学习篇 | ctfshow] pwn入门-格式化字符串</title>
-    <link href="https://blog.ne0xsec.cn/posts/pwn-beginner-formatted-strings/" rel="alternate" type="text/html"/>
-    <id>https://blog.ne0xsec.cn/posts/pwn-beginner-formatted-strings/</id>
+    <link href="https://shirone.mysqil.com/posts/pwn-beginner-formatted-strings/" rel="alternate" type="text/html"/>
+    <id>https://shirone.mysqil.com/posts/pwn-beginner-formatted-strings/</id>
     <published>2026-04-19T00:00:00.000Z</published>
     <updated>2026-04-19T00:00:00.000Z</updated>
     <summary>CTFSHOW pwn刷题入门记录，格式化字符串。</summary>
@@ -1086,13 +1133,13 @@ unsigned __int64 __fastcall leak(int *a1)
 </code></pre>
 <p>获取<code>flag</code>的函数位<code>get_flag()</code>,但是需要我们输入一个与<code>secret</code>相同的字符串才能获取到<code>flag</code>,而<code>secret</code>是由<code>/dev/urandom</code>生成的.<code>leak</code>函数可以泄露栈上<code>8</code>字节的数据,<code>fmt_attack</code>则是一个格式化字符串漏洞.思路就是</p>
 ]]></content>
-    <author><name>序章</name></author>
+    <author><name>Shirone</name></author>
     <category term="CTF学习篇"/>
   </entry>
   <entry>
     <title>[学习篇 | ctfshow] pwn入门-栈溢出</title>
-    <link href="https://blog.ne0xsec.cn/posts/pwn-introduction-stack-overflow/" rel="alternate" type="text/html"/>
-    <id>https://blog.ne0xsec.cn/posts/pwn-introduction-stack-overflow/</id>
+    <link href="https://shirone.mysqil.com/posts/pwn-introduction-stack-overflow/" rel="alternate" type="text/html"/>
+    <id>https://shirone.mysqil.com/posts/pwn-introduction-stack-overflow/</id>
     <published>2026-04-10T00:00:00.000Z</published>
     <updated>2026-04-10T00:00:00.000Z</updated>
     <summary>CTFSHOW pwn刷题入门记录，栈溢出。</summary>
@@ -3223,13 +3270,13 @@ sh.interactive()
 <p>32bit nop sled</p>
 </blockquote>
 ]]></content>
-    <author><name>序章</name></author>
+    <author><name>Shirone</name></author>
     <category term="CTF学习篇"/>
   </entry>
   <entry>
     <title>[比赛篇 | SHCTF]第三届SHCTFWP</title>
-    <link href="https://blog.ne0xsec.cn/posts/the-third-shctfwp/" rel="alternate" type="text/html"/>
-    <id>https://blog.ne0xsec.cn/posts/the-third-shctfwp/</id>
+    <link href="https://shirone.mysqil.com/posts/the-third-shctfwp/" rel="alternate" type="text/html"/>
+    <id>https://shirone.mysqil.com/posts/the-third-shctfwp/</id>
     <published>2026-02-03T00:00:00.000Z</published>
     <updated>2026-02-03T00:00:00.000Z</updated>
     <summary>记录一下本次比赛中成功解出来的题目</summary>
@@ -4553,13 +4600,13 @@ def flag_view(request):
 <p>这里在在高并发下会有多个请求同时进入<code>money-amount</code>的逻辑,可以将余额扣成负数,来拿到<code>flag</code>:</p>
 <pre><code></code></pre>
 ]]></content>
-    <author><name>序章</name></author>
+    <author><name>Shirone</name></author>
     <category term="CTF比赛篇"/>
   </entry>
   <entry>
     <title>[比赛篇 | CTF] 2025春秋杯冬季赛WP</title>
-    <link href="https://blog.ne0xsec.cn/posts/2025-spring-and-autumn-cup-winter-season-wp/" rel="alternate" type="text/html"/>
-    <id>https://blog.ne0xsec.cn/posts/2025-spring-and-autumn-cup-winter-season-wp/</id>
+    <link href="https://shirone.mysqil.com/posts/2025-spring-and-autumn-cup-winter-season-wp/" rel="alternate" type="text/html"/>
+    <id>https://shirone.mysqil.com/posts/2025-spring-and-autumn-cup-winter-season-wp/</id>
     <published>2026-01-30T00:00:00.000Z</published>
     <updated>2026-01-30T00:00:00.000Z</updated>
     <summary>记录一下本次比赛中成功解出来的题目</summary>
@@ -7023,13 +7070,13 @@ io.interactive()
 </code></pre>
 <p><img src="https://xvzhangblog-1320906906.cos.ap-chengdu.myqcloud.com/blog-image/image-20260131150312471.png" alt="image-20260131150312471" /></p>
 ]]></content>
-    <author><name>序章</name></author>
+    <author><name>Shirone</name></author>
     <category term="CTF比赛篇"/>
   </entry>
   <entry>
     <title>【 比赛篇 | CTF 】2025CISCN暨长城杯</title>
-    <link href="https://blog.ne0xsec.cn/posts/2025-cisc--and-great-wall-cup/" rel="alternate" type="text/html"/>
-    <id>https://blog.ne0xsec.cn/posts/2025-cisc--and-great-wall-cup/</id>
+    <link href="https://shirone.mysqil.com/posts/2025-cisc--and-great-wall-cup/" rel="alternate" type="text/html"/>
+    <id>https://shirone.mysqil.com/posts/2025-cisc--and-great-wall-cup/</id>
     <published>2025-12-28T00:00:00.000Z</published>
     <updated>2025-12-28T00:00:00.000Z</updated>
     <summary>记录一下本次比赛中成功解出来的题目</summary>
@@ -7402,7 +7449,7 @@ console.log('[+] resolved path:', returned);
 <p>通过控制传入的空数组的值以及路径穿越，就可以任意读取文件：
 <img src="https://xvzhangblog-1320906906.cos.ap-chengdu.myqcloud.com/blog-image/image-20251228223621484.png" alt="image-20251228223621484" /></p>
 ]]></content>
-    <author><name>序章</name></author>
+    <author><name>Shirone</name></author>
     <category term="CTF比赛篇"/>
   </entry>
 </feed>
